@@ -1,0 +1,24 @@
+@model Livro
+
+@{
+    ViewData["Title"] = "Lista Livro";
+}
+
+<h1>Livros Disponíveis</h1>
+
+<h2>
+
+</h2>
+
+<div>
+    @foreach (Livro livro in ViewBag.Livro)
+    {
+        <div class="card">
+             <img src="/img/Equipes/@livro.Imagem" alt="Imagem da equipe @livro.Imagem" width="50px">
+            <img src="" alt="">
+            <p>@livro.Nome</p>
+            <a class="navbar-brand" asp-area="" asp-controller="Livro" asp-action="Detalhes" asp-route-id="@livro.LivroID">
+                Detalhes</a>
+        </div>
+    }
+</div>

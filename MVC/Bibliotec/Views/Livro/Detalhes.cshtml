@@ -1,0 +1,32 @@
+@model Livro
+
+@{
+    ViewData["Title"] = "Destalhes do Livro";
+}
+
+<h1>Livros Disponíveis</h1>
+
+<div>
+    <span>
+        @ViewBag.Livro.Nome
+    </span>
+    <div>
+        <img src="img/@ViewBag.Livro.Imagem" alt="">
+        <span>Descrição:</span>
+        <p>@ViewBag.Livro.Descricao</p>
+    </div>
+
+    <span>Editora:</span>
+    <p>@ViewBag.Livro.Editora</p>
+
+    <span>Escritor:</span>
+    <p>@ViewBag.Livro.Escritor</p>
+    
+    <span>Idioma:</span>
+    <p>
+        @ViewBag.Livro.Idioma
+    </p>
+    
+    <span>Categoria:</span>
+    @* <p>@ViewBag.Livro.CategoriaID</p> *@
+</div>
