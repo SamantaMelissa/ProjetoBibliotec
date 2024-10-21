@@ -1,0 +1,38 @@
+@{
+    ViewData["Title"] = "Editar Livro";
+}
+
+<h1>Editar Livro</h1>
+
+<form method="post" action="@Url.Action("Atualizar")" enctype="multipart/form-data">
+
+    <label for="">Nome</label>
+    <input type="text" name="Nome" value="@ViewBag.Livro.Nome">
+
+    <label>Foto do livro:</label>
+    <input type="file" name="Imagem" value="@ViewBag.Livro.Imagem">
+
+    <label for="">Escritor</label>
+    <input type="text" name="Escritor" value="@ViewBag.Livro.Escritor">
+
+    <label for="">Idioma</label>
+    <input type="text" name="Idioma" value="@ViewBag.Livro.Idioma">
+
+    <label for="">Editora</label>
+    <input type="text" name="Editora" value="@ViewBag.Livro.Editora">
+
+    <label for="">Descrição</label>
+    <input type="text" name="Descricao" value="@ViewBag.Livro.Descricao">
+
+    <select name="CategoriaID" id="CategoriaID">
+
+        <option value="0">Selecione uma opção: </option>
+
+        @foreach (Categoria categoria in ViewBag.Categoria)
+        {
+           <option value="@categoria.CategoriaID" @(ViewBag.CategoriasDoLivro.Any(c => c.CategoriaID == categoria.CategoriaID) ? "selected" : "")>@categoria.Nome</option>
+        }
+
+    </select>
+    <button type="submit">Editar</button>
+</form>

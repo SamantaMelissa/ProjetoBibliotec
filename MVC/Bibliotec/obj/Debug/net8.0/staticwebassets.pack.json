@@ -13,6 +13,18 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\admin\\Desktop\\Técnico\\Projeto Bibliotec\\MVC\\Bibliotec\\wwwroot\\img\\Livros\\91zFLdx3DyL._SY466_.png",
+      "PackagePath": "staticwebassets\\img\\Livros\\91zFLdx3DyL._SY466_.png"
+    },
+    {
+      "Id": "C:\\Users\\admin\\Desktop\\Técnico\\Projeto Bibliotec\\MVC\\Bibliotec\\wwwroot\\img\\Livros\\Foto1.png",
+      "PackagePath": "staticwebassets\\img\\Livros\\Foto1.png"
+    },
+    {
+      "Id": "C:\\Users\\admin\\Desktop\\Técnico\\Projeto Bibliotec\\MVC\\Bibliotec\\wwwroot\\img\\Livros\\padrao.png",
+      "PackagePath": "staticwebassets\\img\\Livros\\padrao.png"
+    },
+    {
       "Id": "C:\\Users\\admin\\Desktop\\Técnico\\Projeto Bibliotec\\MVC\\Bibliotec\\wwwroot\\img\\arrow-left.svg",
       "PackagePath": "staticwebassets\\img\\arrow-left.svg"
     },

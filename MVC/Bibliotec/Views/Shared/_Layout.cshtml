@@ -13,34 +13,35 @@
 <body>
     <!-- ************ CABEÇALHO ************ -->
     <header class="header">
-        <div class="container header-flex">
-            <img src="./images/logo-recortado.png" alt=""
+        <div class="container header_flex">
+            <img src="~/img/logo-recortado.png" alt=""
                 class="logotipo. Imagem de um libro aberto e um texto escrito Bibliotech" />
             <nav class="navbar" id="navbar">
-                <img class="arrow-left" src="./images/arrow-left.svg" alt="Menu Mobile" onclick="mostraMenu()" />
-                <img class="logo-mobile" src="../../wwwroot/img/logo-mobile.png" alt="Menu Mobile" />
+                <img class="arrow-left" src="~/img/arrow-left.svg" alt="Menu Mobile" onclick="mostraMenu()" />
+                <img class="logo-mobile" src="~/img/logo-mobile.png" alt="Menu Mobile" />
                 <a href="#" class="navbar-item">Quem Somos</a>
                 <a href="#" class="navbar-item">Nosso Acervo</a>
                 <a class="navbar-item" asp-area="" asp-controller="Login" asp-action="Index">Login</a>
             </nav>
 
-            <img src="./images/menu-hamburger.png" alt="" class="menu-hamburger" id="menu-hamburger"
+            <img src="~/img/menu-hamburger.png" alt="" class="menu-hamburger" id="menu-hamburger"
                 onclick="mostraMenu()" />
         </div>
     </header>
+
 
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
+@* 
     <footer class="footer">
         <div class="container footer-flex">
 
             <div class="footer-logo">
-                <img class="img-footer-logo" src="./images/logo-desktop.svg" alt="" />
-                <img class="img-footer-senai" src="./images/logo-senai-vermelho.png" alt="" />
+                <img class="img-footer-logo" src="~/img/logo-desktop.svg" alt="" />
+                <img class="img-footer-senai" src="~/img/logo-senai-vermelho.png" alt="" />
             </div>
 
             <nav class="footer-nav">
@@ -57,9 +58,9 @@
                     <a href="#">Clientes</a>
                     <a href="#">Benefícios</a>
                     <span class="sociais">
-                        <a href="#"><img src="./images/facebook-icon.png" alt=""></a>
-                        <a href="#"><img src="./images/instagram-icon.png" alt=""></a>
-                        <a href="#"><img src="./images/linkedin-icon.png" alt=""></a>
+                        <a href="#"><img src="~/img/facebook-icon.png" alt=""></a>
+                        <a href="#"><img src="~/img/instagram-icon.png" alt=""></a>
+                        <a href="#"><img src="~/img/linkedin-icon.png" alt=""></a>
                     </span>
                 </div>
             </nav>
@@ -70,7 +71,7 @@
                 &copy; 2024 Bibliotec - Todos os direitos reservados
             </p>
         </div>
-    </footer>
+    </footer> *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

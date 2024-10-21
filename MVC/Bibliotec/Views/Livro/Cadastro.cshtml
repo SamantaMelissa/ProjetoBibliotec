@@ -4,13 +4,13 @@
 
 <h1>Cadastrar Livro</h1>
 
-    <form method="post" action="@Url.Action("Cadastrar")">
+    <form method="post" action="@Url.Action("Cadastrar")" enctype="multipart/form-data">
 
         <label for="">Nome</label>
         <input type="text" name="Nome">
 
-        <label for="">Foto da capa</label>
-        <input type="image" name="Imagem">
+        <label>Foto do livro:</label>
+        <input type="file" name="Imagem">
 
         <label for="">Escritor</label>
         <input type="text" name="Escritor">

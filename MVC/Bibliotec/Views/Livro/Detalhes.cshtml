@@ -11,7 +11,7 @@
         @ViewBag.Livro.Nome
     </span>
     <div>
-        <img src="img/@ViewBag.Livro.Imagem" alt="">
+        <img src="/img/Livros/@ViewBag.Livro.Imagem" alt="Imagem da capa do livro @ViewBag.Livro.Imagem">
         <span>Descrição:</span>
         <p>@ViewBag.Livro.Descricao</p>
     </div>
@@ -21,12 +21,27 @@
 
     <span>Escritor:</span>
     <p>@ViewBag.Livro.Escritor</p>
-    
+
     <span>Idioma:</span>
     <p>
         @ViewBag.Livro.Idioma
     </p>
-    
-    <span>Categoria:</span>
-    @* <p>@ViewBag.Livro.CategoriaID</p> *@
+
+    @if (ViewBag.Categoria != null && ViewBag.Categoria.Count > 0)
+    {
+        <h3>Categorias:</h3>
+        <ul>
+            @foreach (var categoria in ViewBag.Categoria)
+            {
+                <li>@categoria.Nome</li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>Este livro não possui categorias.</p>
+    }
+
+  <a asp-area="" asp-controller="Livro" asp-action="Excluir" asp-route-id="@ViewBag.Livro.LivroID">Excluir</a>
+  <a asp-area="" asp-controller="Livro" asp-action="Editar" asp-route-id="@ViewBag.Livro.LivroID">Editar</a>
 </div>
