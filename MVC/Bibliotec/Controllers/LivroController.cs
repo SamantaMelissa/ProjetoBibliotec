@@ -57,11 +57,95 @@ namespace Bibliotec.Controllers
         }
 
         // Criar método para favoritar o livro
-        // public string Favoritar(string parameter)
-        // {
+        [Route("Favoritar/{id}")]
+        public IActionResult Favoritar(int id)
+        {
 
-        //     return System.NotImplementedException;
-        // }
+            // Obter o nome do usuário logado na sessão
+            var userName = HttpContext.Session.GetString("UserName");
+
+            if (string.IsNullOrEmpty(userName))
+            {
+                // Redirecionar para login, se o usuário não estiver autenticado
+                return RedirectToAction("Login", "Usuario");
+            }
+
+            // Buscar o usuário pelo nome de usuário
+            Usuario usuario = c.Usuario.FirstOrDefault(u => u.Nome == userName)!;
+
+            if (usuario == null)
+            {
+                // Caso o usuário não seja encontrado, retornar um erro
+                return NotFound("Usuário não encontrado");
+            }
+
+            // Buscar o livro específico pelo ID
+            Livro livro = c.Livro.FirstOrDefault(j => j.LivroID == id)!;
+
+            if (livro == null)
+            {
+                // Caso o livro não seja encontrado, retornar um erro
+                return NotFound("Livro não encontrado");
+            }
+
+            // Verificar se o livro já está favoritado pelo usuário
+            bool jaFavoritado = c.LivroFavorito.Any(f => f.LivroID == id && f.UsuarioID == usuario.UsuarioID);
+
+            Console.WriteLine($"{jaFavoritado}");
+
+
+            if (!jaFavoritado)
+            {
+                // Adicionar o livro à tabela LivroFavoritos com o ID do usuário
+                LivroFavorito favorito = new LivroFavorito
+                {
+                    LivroID = id,
+                    UsuarioID = usuario.UsuarioID
+                };
+
+                c.LivroFavorito.Add(favorito);
+                c.SaveChanges();
+            }
+
+            // Redirecionar para a página de livros ou outra página desejada
+            return LocalRedirect("~/Livro");
+        }
+
+
+        // Criar método para favoritar o livro
+        [Route("Favoritos")]
+        public IActionResult Favoritos()
+        {
+
+            // Obter o nome do usuário logado na sessão
+            var userName = HttpContext.Session.GetString("UserName");
+
+            if (string.IsNullOrEmpty(userName))
+            {
+                // Redirecionar para login se o usuário não estiver autenticado
+                return RedirectToAction("Login", "Usuario");
+            }
+
+            // Buscar o usuário pelo nome de usuário
+            Usuario usuario = c.Usuario.FirstOrDefault(u => u.Nome == userName)!;
+
+            if (usuario == null)
+            {
+                // Caso o usuário não seja encontrado, retornar um erro
+                return NotFound("Usuário não encontrado");
+            }
+
+            // Buscar os livros favoritados pelo usuário
+            var livrosFavoritos = c.LivroFavorito
+                .Where(f => f.UsuarioID == usuario.UsuarioID)
+                .Select(f => f.Livro) // Obter apenas os dados dos livros
+                .ToList();
+
+            // Passar os livros favoritados para a view
+            ViewBag.LivrosFavoritos = livrosFavoritos;
+
+            return View();
+        }
 
 
         // Método que lista nossas categorias:
@@ -88,7 +172,8 @@ namespace Bibliotec.Controllers
         public IActionResult Cadastrar(IFormCollection form)
         {
             Livro novoLivro = new Livro();
-            LivroCategoria livroCategoria = new LivroCategoria();
+            // List para armazenar múltiplas categorias
+            List<LivroCategoria> livroCategorias = new List<LivroCategoria>();
 
             novoLivro.Nome = form["Nome"].ToString();
             novoLivro.Descricao = form["Descricao"].ToString();
@@ -139,82 +224,123 @@ namespace Bibliotec.Controllers
 
             c.SaveChanges();
 
-            livroCategoria.CategoriaID = int.Parse(form["CategoriaID"].ToString());
-            livroCategoria.LivroID = novoLivro.LivroID;
-            // Adicionando uma nova categoria:
-            c.LivroCategoria.Add(livroCategoria);
+            string[] categoriaIds = form["CategoriaID"].ToString().Split(',');
+
+            foreach (string categoriaId in categoriaIds)
+            {
+                LivroCategoria livroCategoria = new LivroCategoria();
+                livroCategoria.CategoriaID = int.Parse(categoriaId);
+                livroCategoria.LivroID = novoLivro.LivroID;
+                livroCategorias.Add(livroCategoria);
+            }
+            c.LivroCategoria.AddRange(livroCategorias);
             c.SaveChanges();
 
             return LocalRedirect("~/Livro");
         }
 
-
         //Criar método para editar o livro:
         [Route("Editar/{id}")]
         public IActionResult Editar(int id)
         {
-            // ViewBag.UserName = HttpContext.Session.GetString("UserName");
-
             // ListaCategoria();
 
-            // Livro novoLivro = new Livro();
-            // LivroCategoria livroCategoria = new LivroCategoria();
-
-            // Livro livro = c.Livro.First(j => j.LivroID == id);
-            // var categoriasDoLivro = c.LivroCategoria.Where(lc => lc.LivroID == id).ToList();
-
-
-            // ViewBag.Categoria = categoriasDoLivro;
-            // ViewBag.Livro = c.Livro.ToList();
-
-             ViewBag.UserName = HttpContext.Session.GetString("UserName");
+            ViewBag.UserName = HttpContext.Session.GetString("UserName");
 
             // Buscar o livro específico pelo ID
             Livro livro = c.Livro.FirstOrDefault(j => j.LivroID == id)!;
 
             // Buscar as categorias relacionadas ao livro
             var categoriasDoLivro = c.LivroCategoria
-                .Where(lc => lc.LivroID == id)
-                .Select(lc => lc.Categoria)
-                .ToList();
+              .Where(lc => lc.LivroID == id)
+              .Select(lc => lc.Categoria)
+              .ToList();
 
-            // Buscar todas as categorias
-            // var todasAsCategorias = c.Categoria.ToList();
-
-            var todasAsCategorias = c.Categoria.ToList();
             // Passar as informações para a view
             ViewBag.Livro = livro;
-            ViewBag.Categoria = categoriasDoLivro;
-            ViewBag.LivroCategoria = todasAsCategorias;
-            return View("Editar");
+            ViewBag.categoriasDoLivro = categoriasDoLivro;
+            ViewBag.Categoria = c.Categoria.ToList();
+
+            return View("Edit");
         }
 
 
-        // [Route("Atualizar")]
-        // public IActionResult Atualizar(IFormCollection form)
-        // {
-        //     Livro novoLivro = new Livro();
-        //     LivroCategoria livroCategoria = new LivroCategoria();
+        [Route("Atualizar/{id}")]
+        public IActionResult Atualizar(int id, IFormCollection form, IFormFile? imagem)
+        {
+            // Buscar o livro específico pelo ID
+            Livro livro = c.Livro.FirstOrDefault(j => j.LivroID == id);
 
-        //     novoLivro.Nome = form["Nome"].ToString();
-        //     novoLivro.Descricao = form["Descricao"].ToString();
-        //     novoLivro.Editora = form["Editora"].ToString();
-        //     novoLivro.Escritor = form["Escritor"].ToString();
-        //     novoLivro.Idioma = form["Idioma"].ToString();
+            if (livro == null)
+            {
+                return NotFound(); // Retorna erro 404 se o livro não for encontrado
+            }
 
-        //     Livro livroBuscado = c.Livro.First(j => j.LivroID == novoLivro.LivroID);
+            // Atualizar os dados do livro com as informações do formulário
+            livro.Nome = form["Nome"];
+            livro.Descricao = form["Descricao"];
+            livro.Editora = form["Editora"];
+            livro.Escritor = form["Escritor"];
+            livro.Idioma = form["Idioma"];
 
-        //     livroBuscado.Nome = novoLivro.Nome;
-        //     livroBuscado.Descricao = novoLivro.Descricao;
-        //     livroBuscado.Editora = novoLivro.Editora;
-        //     livroBuscado.Escritor = novoLivro.Escritor;
-        //     livroBuscado.Idioma = novoLivro.Idioma;
+            // Atualizar a imagem, se uma nova for fornecida
+            if (imagem != null && imagem.Length > 0)
+            {
+                // Caminho onde a imagem será salva
+                var caminhoImagem = Path.Combine("wwwroot/img/Livros", imagem.FileName);
 
-        //     c.Livro.Update(livroBuscado);
-        //     c.SaveChanges();
+                // Excluir a imagem antiga, se existir
+                if (!string.IsNullOrEmpty(livro.Imagem))
+                {
+                    var caminhoAntigo = Path.Combine("wwwroot/img/Livros", livro.Imagem);
+                    if (System.IO.File.Exists(caminhoAntigo))
+                    {
+                        System.IO.File.Delete(caminhoAntigo);
+                    }
+                }
 
-        //     return LocalRedirect("~/Jogador/Listar");
-        // }
+                // Salvar a nova imagem no caminho especificado
+                using (var stream = new FileStream(caminhoImagem, FileMode.Create))
+                {
+                    imagem.CopyTo(stream);
+                }
+
+                // Atualizar o caminho da imagem no banco de dados
+                livro.Imagem = imagem.FileName;
+            }
+
+            // Atualizar categorias
+            var categoriasSelecionadas = form["CategoriaID"].ToList();
+            var categoriasDoLivro = c.LivroCategoria.Where(lc => lc.LivroID == id).ToList();
+
+            // Remover categorias que não estão mais selecionadas
+            foreach (var categoria in categoriasDoLivro)
+            {
+                if (!categoriasSelecionadas.Contains(categoria.CategoriaID.ToString()))
+                {
+                    c.LivroCategoria.Remove(categoria);
+                }
+            }
+
+            // Adicionar novas categorias selecionadas
+            foreach (var categoriaId in categoriasSelecionadas)
+            {
+                if (!categoriasDoLivro.Any(c => c.CategoriaID.ToString() == categoriaId))
+                {
+                    c.LivroCategoria.Add(new LivroCategoria
+                    {
+                        LivroID = id,
+                        CategoriaID = int.Parse(categoriaId)
+                    });
+                }
+            }
+
+            // Salvar alterações no banco de dados
+            c.SaveChanges();
+
+            // Redirecionar para a página de detalhes ou outra página desejada
+            return RedirectToAction("Detalhes", new { id });
+        }
 
 
         //Criar método para EXCLUIR o livro:

@@ -1,0 +1,45 @@
+@{
+    ViewData["Title"] = "Editar Livro";
+}
+
+<h1>Editar Livro</h1>
+
+<form method="post" action="@Url.Action("Atualizar", new { id = ViewBag.Livro.LivroID })" enctype="multipart/form-data">
+
+    <label for="">Nome</label>
+    <input type="text" name="Nome" value="@ViewBag.Livro.Nome">
+
+    <label>Foto do livro:</label>
+    <input type="file" name="Imagem" value="@ViewBag.Livro.Imagem">
+
+    <label for="">Escritor</label>
+    <input type="text" name="Escritor" value="@ViewBag.Livro.Escritor">
+
+    <label for="">Idioma</label>
+    <input type="text" name="Idioma" value="@ViewBag.Livro.Idioma">
+
+    <label for="">Editora</label>
+    <input type="text" name="Editora" value="@ViewBag.Livro.Editora">
+
+    <label for="">Descrição</label>
+    <input type="text" name="Descricao" value="@ViewBag.Livro.Descricao">
+
+    <label for="CategoriaID">Escolha uma categoria:</label>
+    <select name="CategoriaID" id="CategoriaID" multiple size="7">
+        @foreach (var categoria in ViewBag.Categoria)
+        {
+
+            var isSelected = false;
+            foreach (var categoriaDoLivro in ViewBag.categoriasDoLivro)
+            {
+                if (categoriaDoLivro.CategoriaID == categoria.CategoriaID)
+                {
+                    isSelected = true;
+                    break; // Sai do loop interno se a categoria foi encontrada
+                }
+            }
+            <option value="@categoria.CategoriaID" selected="@(isSelected ? "selected" : null)"> @categoria.Nome</option>
+        }
+    </select>
+    <button type="submit">Editar</button>
+</form>

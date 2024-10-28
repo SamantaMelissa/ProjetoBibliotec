@@ -4,33 +4,43 @@
 
 <h1>Cadastrar Livro</h1>
 
-    <form method="post" action="@Url.Action("Cadastrar")" enctype="multipart/form-data">
+<form method="post" action="@Url.Action("Cadastrar")" enctype="multipart/form-data">
 
-        <label for="">Nome</label>
-        <input type="text" name="Nome">
+    <label for="">Nome</label>
+    <input type="text" name="Nome">
 
-        <label>Foto do livro:</label>
-        <input type="file" name="Imagem">
+    <label>Foto do livro:</label>
+    <input type="file" name="Imagem">
 
-        <label for="">Escritor</label>
-        <input type="text" name="Escritor">
+    <label for="">Escritor</label>
+    <input type="text" name="Escritor">
 
-        <label for="">Idioma</label>
-        <input type="text" name="Idioma">
+    <label for="">Idioma</label>
+    <input type="text" name="Idioma">
 
-        <label for="">Editora</label>
-        <input type="text" name="Editora">
+    <label for="">Editora</label>
+    <input type="text" name="Editora">
 
-        <label for="">Descrição</label>
-        <input type="text" name="Descricao">
+    <label for="">Descrição</label>
+    <input type="text" name="Descricao">
 
-        <select name="CategoriaID" id="CategoriaID">
-        <option value="0">Selecione uma opção: </option>
+    <label for="CategoriaID">Escolha uma categoria:</label>
+    
+    <select name="CategoriaID" id="CategoriaID" multiple size="7">
         @foreach (Categoria categoria in ViewBag.Categoria)
         {
-                        <option value="@categoria.CategoriaID">@categoria.Nome</option>
+            <option value="@categoria.CategoriaID">@categoria.Nome</option>
         }
+        }
+    </select>
 
-</select>
-        <button type="submit">Cadastrar</button>
-    </form>
+    @* <select name="CategoriaID" id="CategoriaID">
+    <option value="0">Selecione uma opção: </option>
+    @foreach (Categoria categoria in ViewBag.Categoria)
+    {
+    <option value="@categoria.CategoriaID">@categoria.Nome</option>
+    }
+
+    </select> *@
+    <button type="submit">Cadastrar</button>
+</form>

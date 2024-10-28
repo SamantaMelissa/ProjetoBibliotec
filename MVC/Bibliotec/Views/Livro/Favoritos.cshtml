@@ -1,17 +1,17 @@
 @model Livro
 
 @{
-    ViewData["Title"] = "Lista Livro";
+    ViewData["Title"] = "Livros Favoritos";
 }
 
-<h1>Livros Disponíveis</h1>
+<h1>Livros Favoritos</h1>
 
 <h2>
 
 </h2>
 
 <div>
-    @foreach (Livro livro in ViewBag.Livro)
+    @foreach (Livro livro in ViewBag.LivrosFavoritos)
     {
         <div class="card">
             <img src="/img/Livros/@livro.Imagem" alt="Imagem da capa do livro @livro.Imagem" width="50px">

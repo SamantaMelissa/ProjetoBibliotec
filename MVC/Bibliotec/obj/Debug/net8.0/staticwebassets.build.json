@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wzg9DeEYMzUVgtkfoVzjZa9im6pSbYqousPhuhNU1GE=",
+  "Hash": "3j/UvAu8wkROjaDGYfO+G1llqnXxRAiA7mWfE2496jE=",
   "Source": "Bibliotec",
   "BasePath": "_content/Bibliotec",
   "Mode": "Default",
@@ -226,6 +226,25 @@
       "OriginalItemSpec": "wwwroot\\img\\check-solid.svg"
     },
     {
+      "Identity": "C:\\Users\\admin\\Desktop\\Técnico\\Projeto Bibliotec\\MVC\\Bibliotec\\wwwroot\\img\\contorno-em-forma-de-coracao.png",
+      "SourceId": "Bibliotec",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\admin\\Desktop\\Técnico\\Projeto Bibliotec\\MVC\\Bibliotec\\wwwroot\\",
+      "BasePath": "_content/Bibliotec",
+      "RelativePath": "img/contorno-em-forma-de-coracao.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\contorno-em-forma-de-coracao.png"
+    },
+    {
       "Identity": "C:\\Users\\admin\\Desktop\\Técnico\\Projeto Bibliotec\\MVC\\Bibliotec\\wwwroot\\img\\facebook-icon.png",
       "SourceId": "Bibliotec",
       "SourceType": "Discovered",
@@ -397,6 +416,25 @@
       "OriginalItemSpec": "wwwroot\\img\\livro4.png"
     },
     {
+      "Identity": "C:\\Users\\admin\\Desktop\\Técnico\\Projeto Bibliotec\\MVC\\Bibliotec\\wwwroot\\img\\Livros\\4113044.png",
+      "SourceId": "Bibliotec",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\admin\\Desktop\\Técnico\\Projeto Bibliotec\\MVC\\Bibliotec\\wwwroot\\",
+      "BasePath": "_content/Bibliotec",
+      "RelativePath": "img/Livros/4113044.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Livros\\4113044.png"
+    },
+    {
       "Identity": "C:\\Users\\admin\\Desktop\\Técnico\\Projeto Bibliotec\\MVC\\Bibliotec\\wwwroot\\img\\Livros\\91zFLdx3DyL._SY466_.png",
       "SourceId": "Bibliotec",
       "SourceType": "Discovered",
@@ -414,6 +452,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\Livros\\91zFLdx3DyL._SY466_.png"
+    },
+    {
+      "Identity": "C:\\Users\\admin\\Desktop\\Técnico\\Projeto Bibliotec\\MVC\\Bibliotec\\wwwroot\\img\\Livros\\b1a40d35-5b7c-4e45-9158-3c8c8b1e9506.webp",
+      "SourceId": "Bibliotec",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\admin\\Desktop\\Técnico\\Projeto Bibliotec\\MVC\\Bibliotec\\wwwroot\\",
+      "BasePath": "_content/Bibliotec",
+      "RelativePath": "img/Livros/b1a40d35-5b7c-4e45-9158-3c8c8b1e9506.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Livros\\b1a40d35-5b7c-4e45-9158-3c8c8b1e9506.webp"
     },
     {
       "Identity": "C:\\Users\\admin\\Desktop\\Técnico\\Projeto Bibliotec\\MVC\\Bibliotec\\wwwroot\\img\\Livros\\Foto1.png",
