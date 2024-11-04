@@ -1,0 +1,36 @@
+@{
+    ViewData["Title"] = "Editar Usuario";
+}
+
+<h1>Editar Usuário</h1>
+
+<form method="post" action="@Url.Action($"Atualizar", new { id = ViewBag.Usuario.UsuarioID})">
+
+    <label for="">Nome</label>
+    <input type="text" name="Nome" value="@ViewBag.Usuario.Nome">
+   
+    <label for="">E-mail</label>
+    <input type="text" name="Email" value="@ViewBag.Usuario.Email">
+   
+    <label for="">Contato</label>
+    <input type="text" name="Contato" value="@ViewBag.Usuario.Contato">
+   
+    <label for="">Data de nascimento</label>
+    <input type="date" name="DtNascimento" value="@ViewBag.Usuario.DtNascimento.ToString("yyyy-MM-dd")">
+      
+    <label for="CursoID">Curso:</label>
+    <select name="CursoID" id="CursoID">
+        @foreach (var curso in ViewBag.Curso)
+        {
+            var isSelected = false;
+          
+            if (ViewBag.cursoDoUsuario.CursoID == curso.CursoID)
+            {
+                isSelected = true;
+            }
+        
+            <option value="@curso.CursoID" selected="@(isSelected ? "selected" : null)"> @curso.Nome - @curso.Periodo</option>
+        }
+    </select>
+    <button type="submit">Editar</button>
+</form>

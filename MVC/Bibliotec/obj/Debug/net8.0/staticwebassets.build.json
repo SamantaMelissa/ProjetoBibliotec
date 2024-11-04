@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3j/UvAu8wkROjaDGYfO+G1llqnXxRAiA7mWfE2496jE=",
+  "Hash": "OW43yu4PRaWFYQEFYxnXafz20jLAOhEsWICHrOAqWQQ=",
   "Source": "Bibliotec",
   "BasePath": "_content/Bibliotec",
   "Mode": "Default",
@@ -490,6 +490,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\Livros\\Foto1.png"
+    },
+    {
+      "Identity": "C:\\Users\\admin\\Desktop\\Técnico\\Projeto Bibliotec\\MVC\\Bibliotec\\wwwroot\\img\\Livros\\images.jpeg",
+      "SourceId": "Bibliotec",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\admin\\Desktop\\Técnico\\Projeto Bibliotec\\MVC\\Bibliotec\\wwwroot\\",
+      "BasePath": "_content/Bibliotec",
+      "RelativePath": "img/Livros/images.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Livros\\images.jpeg"
     },
     {
       "Identity": "C:\\Users\\admin\\Desktop\\Técnico\\Projeto Bibliotec\\MVC\\Bibliotec\\wwwroot\\img\\Livros\\padrao.png",

@@ -111,7 +111,6 @@ namespace Bibliotec.Controllers
             return LocalRedirect("~/Livro");
         }
 
-
         // Criar método para favoritar o livro
         [Route("Favoritos")]
         public IActionResult Favoritos()
@@ -147,7 +146,6 @@ namespace Bibliotec.Controllers
             return View();
         }
 
-
         // Método que lista nossas categorias:
         [Route("Categorias")]
         public IActionResult ListaCategoria()
@@ -182,7 +180,7 @@ namespace Bibliotec.Controllers
             novoLivro.Idioma = form["Idioma"].ToString();
             // novoLivro.Imagem = form["Imagem"].ToString();
 
-            Console.WriteLine(form.Files.Count);
+            // Console.WriteLine(form.Files.Count);
 
 
             // upload inicio
@@ -366,6 +364,65 @@ namespace Bibliotec.Controllers
 
             return LocalRedirect("~/Livro");
         }
+
+        // Criar método para criar reserva de livro do aluno
+        [Route("Reservar/{id}")]
+        public IActionResult Reservar(int id)
+        {
+
+            // Obter o nome do usuário logado na sessão
+            var userName = HttpContext.Session.GetString("UserName");
+
+            // Buscar o usuário pelo nome de usuário
+            Usuario usuario = c.Usuario.FirstOrDefault(u => u.Nome == userName)!;
+
+            // Verificar se o livro já está favoritado pelo usuário
+            bool livroReservado = c.LivroReserva.Any(f => f.LivroID == id && f.UsuarioID == usuario.UsuarioID);
+
+            Console.WriteLine($"{livroReservado}");
+
+
+            if (!livroReservado)
+            {
+                // Adicionar o livro à tabela LivroReserva com o ID do usuário
+                LivroReserva reserva = new LivroReserva
+                {
+                    LivroID = id,
+                    UsuarioID = usuario.UsuarioID,
+                    DtReserva = null,
+                    DtDevolucao = null,
+                    Status = 1
+                };
+
+                c.LivroReserva.Add(reserva);
+                c.SaveChanges();
+            }
+
+            // Redirecionar para a página de livros ou outra página desejada
+            return LocalRedirect("~/Livro");
+        }
+
+        // Criar método para cadastrar retirada do livro
+        // [Route("Reservados")]
+        // public IActionResult Reservados()
+        // {
+        //     // Obter o nome do usuário logado na sessão
+        //     var userName = HttpContext.Session.GetString("UserName");
+
+        //     // Buscar o usuário pelo nome de usuário (presumo que seja único)
+        //     LivroReserva reserva = c.LivroReserva.ToList();
+        // //  .Select(r => new
+        // //   {
+        // //       UsuarioNome = r.Usuario.Nome,  // Navega para o nome do usuário
+        // //       LivroNome = r.Livro.Nome,      // Navega para o nome do livro
+        // //       DtReserva = r.DtReserva    // Data da reserva
+        // //   })
+        // //  .ToList();
+
+        //     ViewBag.Reservas = reservas;
+        //     return View();
+        // }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         [Route("Erro")]

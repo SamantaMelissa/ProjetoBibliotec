@@ -11,8 +11,9 @@ namespace Bibliotec.Models
     {
         [Key]
         public int LivroReservaID { get; set; }
-        public DateOnly DtReserva { get; set; }
-        public DateOnly DtDevolucao { get; set; }
+        // cOLOCA O ? PARA QUE ACEITE DADOS NULOS -> NULL
+        public DateOnly? DtReserva { get; set; }
+        public DateOnly? DtDevolucao { get; set; }
         public int Status { get; set; }
 
 

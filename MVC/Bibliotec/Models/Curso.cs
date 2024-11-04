@@ -15,6 +15,8 @@ namespace Bibliotec.Models
         public int CursoID { get; set; }
         [StringLength(100)]
         public string? Nome { get; set; }
-        public char Período { get; set; }
+        public char Periodo { get; set; }
+
+        
     }
 }

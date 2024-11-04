@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Perfil";
+}
+
+<div>
+    <span>@ViewBag.Nome</span>
+    <span>E-mail:</span>
+    <p>@ViewBag.Email</p>
+    <span>Curso:</span>
+    <p>@ViewBag.Curso</p>
+    <span>Período:</span>
+    <p>@ViewBag.Periodo</p>
+    <span>Contato:</span>
+    <p>@ViewBag.Contato</p>
+    <span>Data de nascimento:</span>
+    <p>@ViewBag.DtNascimento</p>
+</div>
+
+<a asp-area="" asp-controller="Usuario" asp-action="Editar" asp-route-id="@ViewBag.Usuario.UsuarioID">Editar Usuário</a>
+<a asp-area="" asp-controller="Usuario" asp-action="Excluir" asp-route-id="@ViewBag.Usuario.UsuarioID">Excluir Usuário</a>

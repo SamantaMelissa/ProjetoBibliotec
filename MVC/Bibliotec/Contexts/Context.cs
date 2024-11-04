@@ -16,7 +16,7 @@ namespace Bibliotec.Contexts
         {
         }
 
-         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
@@ -41,14 +41,14 @@ namespace Bibliotec.Contexts
         //refência de classes e tabelas
 
         //Preciso saber o pq do plural e pq nao aceita... Acho q é pq tem que estar com o nome do banco de dados...
-        public DbSet<Curso> Cursos { get; set; }
+        public DbSet<Curso> Curso { get; set; }
         public DbSet<Livro> Livro { get; set; }
         public DbSet<Categoria> Categoria { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<LivroCategoria> LivroCategoria { get; set; }
         public DbSet<LivroReserva> LivroReserva { get; set; }
         public DbSet<LivroFavorito> LivroFavorito { get; set; }
-        public DbSet<UsuarioCurso> UsuarioCurso { get; set; }
+        // public DbSet<UsuarioCurso> UsuarioCurso { get; set; }
 
     }
 }

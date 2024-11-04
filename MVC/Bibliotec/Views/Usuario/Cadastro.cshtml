@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"] = "Cadastrar Livro";
+}
+
+<h1>Cadastrar Livro</h1>
+
+<form method="post" action="@Url.Action("Cadastrar")" enctype="multipart/form-data">
+
+    <label for="">Nome:</label>
+    <input type="text" name="Nome">
+
+    <label for="">E-mail:</label>
+    <input type="email" name="Email">
+
+    <label for="">Data de nascimento:</label>
+    <input type="date" name="DtNascimento">
+
+    <label for="">Contato:</label>
+    <input type="text" name="Contato">
+
+    <label for="CursoID">Curso:</label>
+    <select name="CursoID" id="CursoID">
+        @foreach (Curso curso in ViewBag.Curso)
+        {
+            <option value="@curso.CursoID"> @curso.Nome - @curso.Periodo</option>
+        }
+    </select>
+    <button type="submit">Cadastrar</button>
+</form>

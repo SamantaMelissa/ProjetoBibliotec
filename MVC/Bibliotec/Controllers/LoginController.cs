@@ -100,8 +100,12 @@ namespace Bibliotec.Controllers
 
 
                 HttpContext.Session.SetString("UserName", usuarioBuscado.Nome!);
+                HttpContext.Session.SetString("UserID", usuarioBuscado.UsuarioID.ToString());
                 return LocalRedirect("~/Livro");
             }
+
+            // Valida se for admin ele meio que ignora
+            
 
             Message = "Dados inválidos!";
             Console.WriteLine($"Dados inválidos!");
