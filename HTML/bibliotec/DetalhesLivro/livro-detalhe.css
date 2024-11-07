@@ -1,0 +1,205 @@
+
+
+/* Desktop First à partir de 992px */
+
+
+/* barra de pesquisa */
+
+.search-bar {
+  width: 80%;
+  height: 40px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  /* align-self: ce nter; */
+  /* border: 1px solid red; */
+}
+
+.search-bar .search-field {
+  width: 88%;
+  height: 35px;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+
+  border: 1px solid #CCCCCC;
+}
+
+.search-bar .search-field input {
+  width: 90%;
+  padding: 2px;
+  border: none;
+  outline: none;
+}
+
+.search-bar .search-field img {
+  width: 20px;
+}
+
+/* article */
+.card-livro {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 22%;
+  max-width: 210px;
+  height: 290px;
+  padding: 22px 30px;
+
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.card-favorito {
+  position: absolute;
+  right: 25px;
+  top: 15px;
+  width: 25px;
+  cursor: pointer;
+}
+
+/* article img */
+.card-livro__foto {
+  width: 100%;
+}
+
+/* article p */
+.card-livro__info {
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.card-livro__btn-detalhes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 42px;
+  margin: 0 auto;
+  font-size: 11px;
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 1px solid #2fd6cb;
+  border-radius: 8px;
+}
+
+
+/******************* EFEITO DE MINIMIZAR - main *******************/
+.main-min {
+  width: calc(100% - 100px);
+}
+
+
+
+@media screen and (max-width: 991px) {}
+
+
+
+
+/*  aaaaa */
+.tituloLivro {
+  font-size: 25px;
+  font-weight: bold;
+  color: #333;
+  margin: 25px 0px 20px 0px;
+}
+
+.conteudoLivro {
+  display: flex;
+  justify-content: center;
+  align-self: flex-start;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.imagemLivro img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.descricaoLivro {
+  width: calc(100% - 50%);
+  /* Ajuste de largura conforme solicitado */
+  text-align: left;
+
+}
+
+.descricaoLivro h3 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.descricaoLivro p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 15px;
+
+}
+
+.botoesAcoes {
+  display: flex;
+  gap: 10px;
+  margin: 30px 0px 30px 0px;
+  justify-content: center;
+  align-items: center;
+}
+
+.botao {
+  padding: 10px 20px;
+  border: 3px solid #7BF3EB;
+  border-radius: 5px;
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.botao.reservar , .editar{
+  width: 50%;
+  margin: 20px 0px 20px 0px;
+}
+
+.botao:hover {
+  background-color: #7BF3EB;
+  color: white;
+}
+
+.coracao {
+  font-size: 20px;
+  padding: 8px 16px;
+}
+
+.detalhesLivro {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  font-size: 14px;
+  color: #333;
+  margin: 20px 0px 10px 0px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.detalhesLivro p {
+  text-align: left;
+  width: 40%;
+}
+
+.linha{
+  background-color: #2fd6cb;
+  width: 50%;
+  height: 3px;
+  align-items: center;
+}
