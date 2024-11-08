@@ -41,9 +41,8 @@ namespace Bibliotec.Controllers
                 new Claim(JwtRegisteredClaimNames.Email, usuario.Email!),
                 new Claim(JwtRegisteredClaimNames.Jti, usuario.UsuarioID.ToString()),
                 new Claim(ClaimTypes.Role, usuario.Admin.ToString())
-
             };
-
+ 
             var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("bibliotec-chave-autenticacao-dev"));
 
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -69,25 +68,21 @@ namespace Bibliotec.Controllers
             string emailInformado = form["Email"].ToString();
             string senhaInformado = form["Senha"].ToString();
 
-
             Usuario usuarioBuscado = c.Usuario.FirstOrDefault(u => u.Email == emailInformado && u.Senha == senhaInformado)!;
 
-            //Verificando se o usuário é tipo aluno ou tipo admin
-
+            // bool tipoDeAcesso;
+            // //Verificando se o usuário é admin
             // if (usuarioBuscado.Admin == true)
             // {
-
-
+            //     tipoDeAcesso = true;
+            //     Console.WriteLine($"O usuário é admin");
             // }
 
-
-            if (usuarioBuscado != null)
-            {
+            if (usuarioBuscado != null){
                 GerarToken(usuarioBuscado);
                 string token = GerarToken(usuarioBuscado);
 
-                var cookieOptions = new CookieOptions
-                {
+                var cookieOptions = new CookieOptions{
                     HttpOnly = true,
                     Expires = DateTime.UtcNow.AddYears(1)
                 };
@@ -96,16 +91,16 @@ namespace Bibliotec.Controllers
 
                 ValidarToken.Validar(HttpContext);
 
-                // Console.WriteLine(ValidarToken.Validar(HttpContext));
-
-
                 HttpContext.Session.SetString("UserName", usuarioBuscado.Nome!);
+                HttpContext.Session.SetString("Admin", usuarioBuscado.Admin.ToString());
+                // Validando se está retornando a resposta para se é admin ou não
+                // string adminmesmo = HttpContext.Session.GetString("Admin");
+                // Console.WriteLine($"{adminmesmo}");
+               
                 HttpContext.Session.SetString("UserID", usuarioBuscado.UsuarioID.ToString());
+
                 return LocalRedirect("~/Livro");
             }
-
-            // Valida se for admin ele meio que ignora
-            
 
             Message = "Dados inválidos!";
             Console.WriteLine($"Dados inválidos!");
@@ -121,7 +116,6 @@ namespace Bibliotec.Controllers
 
             return LocalRedirect("~/");
         }
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         [Route("Erro")]

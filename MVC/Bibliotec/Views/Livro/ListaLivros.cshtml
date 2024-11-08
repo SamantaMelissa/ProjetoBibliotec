@@ -1,0 +1,34 @@
+@{
+    ViewData["Title"] = "Cadastrar Livro";
+}
+
+<h1>Lista de livros</h1>
+
+<table>
+    <tr>
+        <th>Nome</th>
+        <th>Reservado</th>
+        <th>Data devolução</th>
+        <th>Editar</th>
+        <th>Detalhes</th>
+    </tr>
+    @foreach (Livro livro in ViewBag.Livro)
+    {
+        <tr>
+            <td>@livro.Nome</td>
+            <td>@livro.Reservado</td>
+            @if (@ViewBag.Reserva.DtDevolucao == "")
+            {
+                <td>Sem reserva</td>
+            }
+            else
+            {
+                <td>@ViewBag.Reserva.DtDevolucao?.ToString("dd/MM/yyyy")</td>
+            }
+            <td><a class="navbar-item" asp-area="" asp-controller="Login" asp-action="Index"><img src="~/img/editar.svg"
+                        alt=""></a></td>
+            <td><a class="navbar-item" asp-area="" asp-controller="Usuario" asp-action="Index"><img src="~/img/detalhes.svg"
+                        alt=""></a></td>
+        </tr>
+    }
+</table>

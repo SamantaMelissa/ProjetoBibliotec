@@ -11,7 +11,7 @@
 </h2>
 
 <div>
-    @foreach (Livro livro in ViewBag.Livro)
+    @foreach (Livro livro in ViewBag.Livro as List<Livro>)
     {
         <div class="card">
             <img src="/img/Livros/@livro.Imagem" alt="Imagem da capa do livro @livro.Imagem" width="50px">

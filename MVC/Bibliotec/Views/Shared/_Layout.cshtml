@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <!-- ************ CABEÇALHO ************ -->
+    <!-- ************ MENU ************ -->
     <header class="header">
         <div class="container header_flex">
             <img src="~/img/logo-recortado.png" alt=""
@@ -30,47 +30,123 @@
     </header>
 
 
+    <!-- ************ MENU LATERAL - ALUNO ************ -->
+    <p>******* MENU LATERAL - ALUNO *******</p>
+    <aside class="">
+        <!-- <img src="../images/arrow-left.svg" class="mnu-arrow-left" alt=""> -->
+        <span onclick="recolheMenu(event);" class="mnu-arrow-left">&lt;</span>
+        <div class="aside-top">
+            <img class="logo-mobile" src="../images/logo-mobile.png" alt="" />
+
+            <nav class="menu-lateral">
+                <a class="navbar-item" asp-area="" asp-controller="Usuario" asp-action="Index">
+                    <img src="../images/UserPlus-icon.svg" alt="" />
+                    Perfil
+                </a>
+                <br>
+                <a class="navbar-item" asp-area="" asp-controller="Livro" asp-action="Index">
+                    <img src="../images/Book-icon.png" alt="" />
+                    Livros Disponíveis
+                </a>
+                <br>
+                <a class="navbar-item" asp-area="" asp-controller="Livro" asp-action="Favoritos">
+                    <img src="../images/BookHeart-Icon.png" alt="" />
+                    Favoritos
+                </a>
+            </nav>
+        </div>
+
+        <a asp-area="" asp-controller="Login" asp-action="Index" class="user-logout">
+            <img src="../images/logout-icon.svg" alt="" />
+            Sair
+        </a>
+    </aside>
+
+    <!-- ************ MENU LATERAL - ADMIN ************ -->
+    <p>******* MENU LATERAL - ADMIN *******</p>
+    <aside class="">
+        <!-- <img src="../images/arrow-left.svg" class="mnu-arrow-left" alt=""> -->
+        <span onclick="recolheMenu(event);" class="mnu-arrow-left">&lt;</span>
+        <div class="aside-top">
+            <img class="logo-mobile" src="../images/logo-mobile.png" alt="" />
+
+            <nav class="menu-lateral">
+                <a class="navbar-item" asp-area="" asp-controller="Usuario" asp-action="Cadastro">
+                    <img src="../images/UserPlus-icon.svg" alt="" />
+                    Cadastrar Usuário
+                </a>
+                <br>
+                <a class="navbar-item" asp-area="" asp-controller="Login" asp-action="Index">
+                    <img src="../images/Book-icon.png" alt="" />
+                    Listar Usuários
+                </a>
+                <br>
+                <a class="navbar-item" asp-area="" asp-controller="Livro" asp-action="Cadastro">
+                    <img src="../images/BookHeart-Icon.png" alt="" />
+                    Cadastrar Livros
+                </a>
+                <br>
+                <a class="navbar-item" asp-area="" asp-controller="Login" asp-action="Index">
+                    <img src="../images/BookHeart-Icon.png" alt="" />
+                    Listar Livros
+                </a>
+                <br>
+                <a class="navbar-item" asp-area="" asp-controller="Login" asp-action="Index">
+                    <img src="../images/BookHeart-Icon.png" alt="" />
+                    Retirar livros
+                </a>
+            </nav>
+        </div>
+
+        <a href="#" class="user-logout">
+            <img src="../images/logout-icon.svg" alt="" />
+            Sair
+        </a>
+    </aside>
+
+
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-@* 
+    @*
     <footer class="footer">
-        <div class="container footer-flex">
+    <div class="container footer-flex">
 
-            <div class="footer-logo">
-                <img class="img-footer-logo" src="~/img/logo-desktop.svg" alt="" />
-                <img class="img-footer-senai" src="~/img/logo-senai-vermelho.png" alt="" />
-            </div>
+    <div class="footer-logo">
+    <img class="img-footer-logo" src="~/img/logo-desktop.svg" alt="" />
+    <img class="img-footer-senai" src="~/img/logo-senai-vermelho.png" alt="" />
+    </div>
 
-            <nav class="footer-nav">
+    <nav class="footer-nav">
 
-                <div class="left-info">
-                    <h4>Biblioteca</h4>
-                    <a href="#">Baixar aplicativo</a>
-                    <a href="#">Suporte ao usuário</a>
-                    <h4 class="sociais-titulo">Siga nas redes sociais</h4>
-                </div>
+    <div class="left-info">
+    <h4>Biblioteca</h4>
+    <a href="#">Baixar aplicativo</a>
+    <a href="#">Suporte ao usuário</a>
+    <h4 class="sociais-titulo">Siga nas redes sociais</h4>
+    </div>
 
-                <div class="right-info">
-                    <h4>Quem somos</h4>
-                    <a href="#">Clientes</a>
-                    <a href="#">Benefícios</a>
-                    <span class="sociais">
-                        <a href="#"><img src="~/img/facebook-icon.png" alt=""></a>
-                        <a href="#"><img src="~/img/instagram-icon.png" alt=""></a>
-                        <a href="#"><img src="~/img/linkedin-icon.png" alt=""></a>
-                    </span>
-                </div>
-            </nav>
-        </div>
+    <div class="right-info">
+    <h4>Quem somos</h4>
+    <a href="#">Clientes</a>
+    <a href="#">Benefícios</a>
+    <span class="sociais">
+    <a href="#"><img src="~/img/facebook-icon.png" alt=""></a>
+    <a href="#"><img src="~/img/instagram-icon.png" alt=""></a>
+    <a href="#"><img src="~/img/linkedin-icon.png" alt=""></a>
+    </span>
+    </div>
+    </nav>
+    </div>
 
-        <div class="container footer-mobile-only">
-            <p class="right">
-                &copy; 2024 Bibliotec - Todos os direitos reservados
-            </p>
-        </div>
+    <div class="container footer-mobile-only">
+    <p class="right">
+    &copy; 2024 Bibliotec - Todos os direitos reservados
+    </p>
+    </div>
     </footer> *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

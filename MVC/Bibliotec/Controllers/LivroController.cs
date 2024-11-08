@@ -31,7 +31,43 @@ namespace Bibliotec.Controllers
         public IActionResult Index()
         {
             ViewBag.UserName = HttpContext.Session.GetString("UserName");
+            //Lista somente os livros ativos
+            // Livro livro = c.Livro.First(x => x.Ativo == true && x.Reservado == false );
+            // Lista todos os livros que estão ativos e não reservados
+            var livros = c.Livro
+                .Where(x => x.Ativo == true && x.Reservado == false)
+                .ToList();
+
+            ViewBag.Livro = livros;
+
+            return View();
+        }
+
+        //Criar método para listar os livros:
+        [Route("ListaLivros")]
+        public IActionResult ListaLivros()
+        {
+            ViewBag.UserName = HttpContext.Session.GetString("UserName");
+            //Lista somente os livros ativos
+            Livro livro = c.Livro.First();
+
             ViewBag.Livro = c.Livro.ToList();
+
+            var reservas = c.LivroReserva
+                .Where(lc => lc.LivroID == livro.LivroID)
+                .Select(lc => c.LivroReserva.First(c => c.LivroID == livro.LivroID))
+                .ToList();
+
+            // Console.WriteLine($"{reservas}");
+          
+
+               Console.WriteLine($"{reservas}");
+               
+
+
+
+            ViewBag.Reserva = reservas;
+
             return View();
         }
 

@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\img\\Livros\\Foto1.png"
     },
     {
+      "Id": "C:\\Users\\admin\\Desktop\\Técnico\\Projeto Bibliotec\\MVC\\Bibliotec\\wwwroot\\img\\Livros\\IMG_20240328_091555_MP.jpg",
+      "PackagePath": "staticwebassets\\img\\Livros\\IMG_20240328_091555_MP.jpg"
+    },
+    {
       "Id": "C:\\Users\\admin\\Desktop\\Técnico\\Projeto Bibliotec\\MVC\\Bibliotec\\wwwroot\\img\\Livros\\b1a40d35-5b7c-4e45-9158-3c8c8b1e9506.webp",
       "PackagePath": "staticwebassets\\img\\Livros\\b1a40d35-5b7c-4e45-9158-3c8c8b1e9506.webp"
     },
@@ -71,6 +75,14 @@
     {
       "Id": "C:\\Users\\admin\\Desktop\\Técnico\\Projeto Bibliotec\\MVC\\Bibliotec\\wwwroot\\img\\contorno-em-forma-de-coracao.png",
       "PackagePath": "staticwebassets\\img\\contorno-em-forma-de-coracao.png"
+    },
+    {
+      "Id": "C:\\Users\\admin\\Desktop\\Técnico\\Projeto Bibliotec\\MVC\\Bibliotec\\wwwroot\\img\\detalhes.svg",
+      "PackagePath": "staticwebassets\\img\\detalhes.svg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\Desktop\\Técnico\\Projeto Bibliotec\\MVC\\Bibliotec\\wwwroot\\img\\editar.svg",
+      "PackagePath": "staticwebassets\\img\\editar.svg"
     },
     {
       "Id": "C:\\Users\\admin\\Desktop\\Técnico\\Projeto Bibliotec\\MVC\\Bibliotec\\wwwroot\\img\\facebook-icon.png",

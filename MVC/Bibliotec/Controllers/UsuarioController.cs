@@ -60,19 +60,35 @@ namespace Bibliotec.Controllers
 
             return View();
         }
+
         [Route("Cadastrar")]
         public IActionResult Cadastrar(IFormCollection form)
         {
             Usuario novoUsuario = new Usuario();
 
+            bool validador;
+
+            if (form["Admin"] == "on"){
+                Console.WriteLine($"Checkado");
+                validador = true;
+            }else{
+                validador = false;
+            }
+
             novoUsuario.Nome = form["Nome"].ToString();
             novoUsuario.Contato = form["Contato"].ToString();
             novoUsuario.Email = form["Email"].ToString();
             novoUsuario.Senha = "123";
-            novoUsuario.Admin = false;
+            novoUsuario.Admin = validador;
             novoUsuario.Status = true;
             novoUsuario.DtNascimento = DateOnly.Parse(form["DtNascimento"]);
-            novoUsuario.CursoID = int.Parse(form["CursoID"]);
+
+            if (form["CursoID"] == ""){
+                novoUsuario.CursoID = null;
+            }
+            else{
+                novoUsuario.CursoID = int.Parse(form["CursoID"]);
+            }
 
             c.Usuario.Add(novoUsuario);
 
@@ -152,7 +168,6 @@ namespace Bibliotec.Controllers
 
             return LocalRedirect("~/Livro");
         }
-
 
         [Route("error")]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -7,6 +7,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 :root {
@@ -160,6 +161,8 @@ aside .menu-lateral a,
     justify-content: space-between;
     /* align-items: flex-start; */
     justify-content: center;
+
+    width: 100%;
  
     height: 90vh;
     padding: 30px;
@@ -219,4 +222,22 @@ aside .user-logout-min {
 .main-min {
     width: calc(100% - 100px);
 }
+  
+
+/* Padrão de botões */
+.btn {
+    background: #FFF;
+    color: black;
+    font-weight: bolder;
+    text-transform: uppercase;
+    border: 2px solid #2fd6cb;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 15px;
+}
+  
+  .btn:hover {
+    background: #2fd6cb;
+    color: #FFF;
+  }
   

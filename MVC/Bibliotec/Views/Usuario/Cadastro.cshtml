@@ -2,7 +2,7 @@
     ViewData["Title"] = "Cadastrar Livro";
 }
 
-<h1>Cadastrar Livro</h1>
+<h1>Cadastrar Usuário</h1>
 
 <form method="post" action="@Url.Action("Cadastrar")" enctype="multipart/form-data">
 
@@ -20,10 +20,13 @@
 
     <label for="CursoID">Curso:</label>
     <select name="CursoID" id="CursoID">
+         <option value=""> Admin</option>
         @foreach (Curso curso in ViewBag.Curso)
         {
             <option value="@curso.CursoID"> @curso.Nome - @curso.Periodo</option>
         }
     </select>
+
+    <label for="">Admin <input type="checkbox" name="Admin" id=""></label>
     <button type="submit">Cadastrar</button>
 </form>
