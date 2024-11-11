@@ -17,14 +17,9 @@
         <tr>
             <td>@livro.Nome</td>
             <td>@livro.Reservado</td>
-            @if (@ViewBag.Reserva.DtDevolucao == "")
-            {
-                <td>Sem reserva</td>
-            }
-            else
-            {
-                <td>@ViewBag.Reserva.DtDevolucao?.ToString("dd/MM/yyyy")</td>
-            }
+          
+            <td>@ViewBag.Reserva</td>
+            
             <td><a class="navbar-item" asp-area="" asp-controller="Login" asp-action="Index"><img src="~/img/editar.svg"
                         alt=""></a></td>
             <td><a class="navbar-item" asp-area="" asp-controller="Usuario" asp-action="Index"><img src="~/img/detalhes.svg"
